@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox id="vbox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.scenes.GameEnded">
+   <children>
+      <Label id="h1" styleClass="h1" text="Game over!">
+         <font>
+            <Font size="21.0" />
+         </font></Label>
+      <Button fx:id="newGameButton" mnemonicParsing="false" onAction="#newGameButtonClicked" text="New game" textAlignment="CENTER">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets bottom="35.0" top="250.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="highScoresButton" mnemonicParsing="false" onAction="#highScoresButtonClicked" text="High scores">
+         <VBox.margin>
+            <Insets bottom="35.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#mainMenuButtonClicked" text="Main menu" />
+   </children>
+</VBox>

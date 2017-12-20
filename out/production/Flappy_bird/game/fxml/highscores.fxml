@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox id="vbox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.scenes.HighScores">
+   <children>
+      <Label id="h1" styleClass="h1" text="High scores" />
+      <Label fx:id="firstPlace" text="">
+         <VBox.margin>
+            <Insets top="130.0" />
+         </VBox.margin>
+         <font>
+            <Font size="66.0" />
+         </font>
+      </Label>
+      <Label fx:id="secondPlace" text="">
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="thirdPlace" text="">
+         <VBox.margin>
+            <Insets top="30.0" />
+            <Insets bottom="45.0" />
+         </VBox.margin>
+         <font>
+            <Font size="28.0" />
+         </font>
+         <VBox.margin>
+         </VBox.margin>
+      </Label>
+      <Button fx:id="mainMenuButton" mnemonicParsing="false" onAction="#mainMenuButtonClicked" text="Main menu" />
+   </children>
+</VBox>
