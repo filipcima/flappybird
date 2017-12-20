@@ -26,7 +26,7 @@ public class HighScores extends Application {
     @FXML
     private void initialize() {
         ScoreManager sm = ScoreManager.getInstance();
-        if (!sm.getScores().isEmpty()) {
+        if (sm.getScores().size() > 2) {
             firstPlace.setText("" + sm.getScores().get(0));
             secondPlace.setText("" + sm.getScores().get(1));
             thirdPlace.setText("" + sm.getScores().get(2));

@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+
 public class Main extends Application {
     private static Stage primaryStage;
     public static Stage getPrimaryStage() {

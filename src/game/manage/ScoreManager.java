@@ -1,10 +1,13 @@
 package game.manage;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+
 
 public class ScoreManager {
     private static ScoreManager scoreManager = new ScoreManager();
@@ -12,11 +15,14 @@ public class ScoreManager {
 
     private int score = 0;
     private List<Integer> scores;
+    private Path baseDir;
 
     private ScoreManager(){
         score = 0;
         scores = new ArrayList<>();
+        baseDir = Paths.get(System.getProperty("user.home")).resolve("Projects/Flappy_bird/");
     }
+
     public void incrementScore() {
         score += 1;
     }
@@ -29,24 +35,20 @@ public class ScoreManager {
     }
     public void resetScore() { score = 0; }
 
-    private void downloadFile() {
-        String server = "www.myserver.com";
-        int port = 21;
-        String user = "user";
-        String pass = "pass";
-    }
-
     public void writeToFile() {
         try (FileWriter fw = new FileWriter("scores.txt", true);
              BufferedWriter bw = new BufferedWriter(fw);
              PrintWriter out = new PrintWriter(bw)) {
             out.println(score);
+            FTPManager.getInstance().uploadFile("scores.txt");
         } catch (Exception e) {
             System.out.println("Cannot write to file.");
         }
     }
 
     private void parseScores() {
+        String fileName = getFileNameFromUrl("http://atavarecek.8u.cz/scores.txt");
+        FTPManager.getInstance().downloadFile("http://atavarecek.8u.cz/scores.txt", baseDir.resolve(fileName));
         scores.clear();
         try {
             File scoresFile = new File("scores.txt");
@@ -60,4 +62,9 @@ public class ScoreManager {
             e.printStackTrace();
         }
     }
+
+    private String getFileNameFromUrl(String urlName) {
+        return urlName.substring(urlName.lastIndexOf('/') + 1);
+    }
+
 }
